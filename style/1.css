@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(0, 0, 0);
+    color: #f0f0f0;
+    font: italic small-caps bold 16px/2 cursive;
+}
+
+div {
+    text-align: center;
+}
+
+#movingObject-container {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 90vh;
+    text-align: center;
+    filter: blur(50px);
+    transition: filter 0.4s ease; /* Weicher Übergang für den Blur-Effekt */
+}
+
+.movingObject {
+    background-color: #313131;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    position: absolute;
+    color: #f0f0f0;
+    text-align: center;
+}
+
+#color-description {
+    background-color: black;
+    text-align: center;
+    position: relative;
+    right: 0px;
+    left: 0px;
+    margin: 30vh;
+    margin-top: 0px;
+    padding: 10px;
+    border-radius: 10px;
+}
