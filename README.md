@@ -1,9 +1,7 @@
 # Colors
 evolution
 
-it's a simple color gradiant.
-below the color bubble is a description about the color
-
+it's a color gradiant with info. below the color bubble is a description about the color. 
 
 # Key Features
 
