@@ -19,7 +19,7 @@ div {
     height: 90vh;
     text-align: center;
     filter: blur(50px);
-    transition: filter 0.4s ease; /* Weicher Übergang für den Blur-Effekt */
+    transition: filter 0.4s ease; /* Smooth transition for the blur effect */
 }
 
 .movingObject {

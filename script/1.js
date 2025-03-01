@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Basisfarben als Array
+    // Base colors as an array
     const baseColors = [
         { name: "green", rgb: "rgb(0, 255, 0)" },
         { name: "blue", rgb: "rgb(0, 0, 255)" },
@@ -10,79 +10,67 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "yellow", rgb: "rgb(255, 255, 0)" }
     ];
 
-    // Funktion, um eine zufällige Grundfarbe auszuwählen
+    // Function to select a random base color
     function getRandomBaseColor() {
         const randomIndex = Math.floor(Math.random() * baseColors.length);
         return baseColors[randomIndex];
     }
 
-    // Hilfsfunktion, um aus einer Basisfarbe eine zufällige Variation zu erzeugen
-    function getRandomColorVariation(baseColor) {
-        const baseRGB = baseColor.match(/\d+/g).map(Number);
-        const variation = baseRGB.map(c => {
-            // Offset zwischen -20 und +180 (entspricht ca. ±100 im Mittel)
-            const offset = Math.floor(Math.random() * 200) - 20;
-            const newColor = Math.min(255, Math.max(0, c + offset));
-            return newColor;
-        });
-        return `rgb(${variation[0]}, ${variation[1]}, ${variation[2]})`;
-    }
-
     const colorDescriptions = {
         green: `
-            <h2>Grüngedanken: Natur, Wachstum und Harmonie</h2>
-            <p>Grün ist eine Farbe, die sofort mit der Natur und ihrer beruhigenden Wirkung assoziiert wird. Sie symbolisiert Wachstum, Erneuerung und Balance. Wenn wir an grüne Wälder, saftige Wiesen oder den Frühling denken, so löst das eine tiefe Verbindung zur Erde aus. Grüntöne vermitteln ein Gefühl der Ruhe und fördern eine Atmosphäre des Wohlbefindens. Es ist keine Überraschung, dass viele Gesundheitseinrichtungen und Arbeitsräume grüne Akzente setzen, um eine Atmosphäre der Entspannung und des inneren Friedens zu schaffen.</p>
-            <p>Grün wird auch oft mit Heilung in Verbindung gebracht. Es ist die Farbe des Lebens und der Erneuerung – die Natur ist im ständigen Kreislauf von Wachstum und Verfall, was diese Farbe zu einem kraftvollen Symbol für kontinuierliche Veränderung und Fortschritt macht. Ob als frisches Blattgrün oder in tieferen, smaragdgrünen Tönen – grüne Farben helfen dabei, die Sinne zu beruhigen, den Blutdruck zu senken und den Geist zu beruhigen. In vielen Kulturen gilt Grün als Farbe des Lebens, des Gleichgewichts und der Hoffnung.</p>
+            <h2>Green Thoughts: Nature, Growth, and Harmony</h2>
+            <p>Green is a color that is immediately associated with nature and its calming effect. It symbolizes growth, renewal, and balance. When we think of green forests, lush meadows, or spring, it evokes a deep connection to the Earth. Green tones convey a sense of calm and foster an atmosphere of well-being. It’s no surprise that many healthcare facilities and workspaces incorporate green accents to create an atmosphere of relaxation and inner peace.</p>
+            <p>Green is also often associated with healing. It is the color of life and renewal – nature is in a constant cycle of growth and decay, making this color a powerful symbol for continuous change and progress. Whether in fresh leaf green or deeper emerald tones, green colors help soothe the senses, lower blood pressure, and calm the mind. In many cultures, green is considered the color of life, balance, and hope.</p>
         `,
         blue: `
-            <h2>Blaue Ruhe: Vertrauen, Stabilität und Klarheit</h2>
-            <p>Blau ist die Farbe der Ruhe und der Weite. Es erinnert an den Himmel, der in seiner Unendlichkeit auf uns herabblickt, und das tiefe, geheimnisvolle Meer. Diese Farbe ist untrennbar mit Konzepten wie Vertrauen, Stabilität und Klarheit verbunden. In einer Welt, die oft von Hektik und Stress geprägt ist, hat Blau die bemerkenswerte Fähigkeit, zu beruhigen und zu entspannen.</p>
-            <p>Blau hat auch eine starke psychologische Wirkung: Es hilft dabei, das Gefühl von Sicherheit und Gelassenheit zu verstärken. In vielen sozialen Kontexten wird Blau als Farbe der Autorität und Zuverlässigkeit wahrgenommen, weshalb es in der Geschäftswelt und in professionellen Kontexten weit verbreitet ist. Der Einsatz von Blau kann das Gefühl von Vertrauen stärken und eine Atmosphäre des friedlichen Miteinanders schaffen. Blauer Himmel und Ozean laden zur Reflexion ein und regen zu einem klaren, fokussierten Denken an.</p>
+            <h2>Blue Calm: Trust, Stability, and Clarity</h2>
+            <p>Blue is the color of calm and vastness. It reminds us of the sky, which gazes down upon us in its infinity, and the deep, mysterious sea. This color is inextricably linked to concepts such as trust, stability, and clarity. In a world often marked by haste and stress, blue has the remarkable ability to calm and relax.</p>
+            <p>Blue also has a strong psychological effect: it helps reinforce the feeling of security and serenity. In many social contexts, blue is perceived as the color of authority and reliability, which is why it is widely used in business and professional contexts. The use of blue can strengthen a sense of trust and create an atmosphere of peaceful coexistence. The blue sky and ocean invite reflection and encourage clear, focused thinking.</p>
         `,
         purple: `
-            <h2>Lila Mystik: Luxus, Kreativität und Ambition</h2>
-            <p>Lila, eine Mischung aus Blau und Rot, ist eine Farbe, die tief mit der Vorstellung von Luxus und Eleganz verbunden ist. Schon in der Antike war Purpur eine Farbe, die den Königen und Kaisern vorbehalten war, da der Farbstoff teuer und schwierig zu gewinnen war. Lila steht nicht nur für Reichtum und Macht, sondern auch für kreative Visionen und tiefgehende Ambitionen.</p>
-            <p>Psychologisch wird Lila oft mit der Förderung von Kreativität und spiritueller Erhebung in Verbindung gebracht. Es ist eine Farbe, die den Geist anregt und eine Atmosphäre des Nachdenkens schafft. In künstlerischen und literarischen Kontexten wird Lila oft genutzt, um mystische oder tiefgründige Themen zu vermitteln. Diese Farbe inspiriert zu Träumen und Fantasien und gibt dem Betrachter das Gefühl, dass alles möglich ist. Lila ist die Farbe der Kunst, der Wissenschaft und der Spiritualität, die oft ein Gleichgewicht zwischen rationalem Denken und intuitiver Weisheit fordert.</p>
+            <h2>Purple Mysticism: Luxury, Creativity, and Ambition</h2>
+            <p>Purple, a mix of blue and red, is a color deeply associated with luxury and elegance. In ancient times, purple was a color reserved for kings and emperors, as the dye was expensive and difficult to obtain. Purple not only stands for wealth and power but also for creative visions and deep ambitions.</p>
+            <p>Psychologically, purple is often linked with fostering creativity and spiritual elevation. It is a color that stimulates the mind and creates an atmosphere of contemplation. In artistic and literary contexts, purple is often used to convey mystical or profound themes. This color inspires dreams and fantasies and gives the viewer the sense that anything is possible. Purple is the color of art, science, and spirituality, often requiring a balance between rational thought and intuitive wisdom.</p>
         `,
         pink: `
-            <h2>Pinke Wärme: Mitgefühl, Verspieltheit und Zärtlichkeit</h2>
-            <p>Pink ist eine Farbe, die sofort mit Wärme und Herzlichkeit verbunden wird. Sie strahlt eine freundliche, einladende Atmosphäre aus und symbolisiert Liebe, Fürsorge und Mitgefühl. Pink ist eine weiche, aber gleichzeitig lebendige Farbe, die das Gefühl von Geborgenheit und Zuneigung hervorruft. Sie wird oft in Kontexten verwendet, die mit Fürsorge, Familie und Freundschaft zu tun haben.</p>
-            <p>Ob als sanftes Rosa oder ein kräftiges Magenta, Pink spricht oft die eher verspielten und romantischen Aspekte des Lebens an. Es ist die Farbe der Empathie, des emotionalen Ausdrucks und der unbeschwerten Freude. Pink kann auch als Symbol für positive Energie und Optimismus angesehen werden, da es ein Gefühl der Freude und des Wohlbefindens in den Raum bringt. Diese Farbe wird oft in Marketing- und Designkonzepten verwendet, die positive, leicht zugängliche und herzliche Botschaften vermitteln möchten.</p>
+            <h2>Pink Warmth: Compassion, Playfulness, and Tenderness</h2>
+            <p>Pink is a color immediately associated with warmth and kindness. It exudes a friendly, inviting atmosphere and symbolizes love, care, and compassion. Pink is a soft yet vibrant color that evokes a feeling of security and affection. It is often used in contexts related to care, family, and friendship.</p>
+            <p>Whether as soft pink or a bold magenta, pink often appeals to the more playful and romantic aspects of life. It is the color of empathy, emotional expression, and carefree joy. Pink can also be seen as a symbol of positive energy and optimism, as it brings a sense of joy and well-being to the space. This color is often used in marketing and design concepts that aim to convey positive, easily accessible, and warm messages.</p>
         `,
         red: `
-            <h2>Rote Leidenschaft: Energie, Liebe und Intensität</h2>
-            <p>Rot ist eine kraftvolle, energische Farbe, die sowohl Leidenschaft als auch Gefahr symbolisieren kann. Sie zieht die Aufmerksamkeit auf sich und vermittelt ein Gefühl von Dringlichkeit und Wichtigkeit. Rot ist untrennbar mit Konzepten wie Liebe, Energie und Wille verbunden. Es ist die Farbe der intensiven Gefühle – von tiefster Liebe bis hin zu wütender Entschlossenheit.</p>
-            <p>Psychologisch wirkt Rot auf das Nervensystem und kann den Puls beschleunigen, was sie zu einer der intensivsten und auffälligsten Farben macht. Es ist die Farbe der Aktion und des Durchsetzungsvermögens. Rote Akzente in einem Raum oder einem Outfit können das Selbstbewusstsein stärken und die Atmosphäre dynamisch gestalten. Diese Farbe wird oft verwendet, um Energie zu verleihen und eine leidenschaftliche, entschlossene Stimmung zu erzeugen. In vielen Kulturen steht Rot für Leben und Vitalität – es ist die Farbe, die uns zu Handlungen und Veränderungen motiviert.</p>
+            <h2>Red Passion: Energy, Love, and Intensity</h2>
+            <p>Red is a powerful, energetic color that can symbolize both passion and danger. It draws attention and conveys a sense of urgency and importance. Red is inextricably linked to concepts such as love, energy, and will. It is the color of intense emotions – from deep love to furious determination.</p>
+            <p>Psychologically, red affects the nervous system and can accelerate the pulse, making it one of the most intense and attention-grabbing colors. It is the color of action and assertiveness. Red accents in a room or outfit can boost self-confidence and create a dynamic atmosphere. This color is often used to give energy and create a passionate, determined mood. In many cultures, red represents life and vitality – it is the color that motivates us to take action and make changes.</p>
         `,
         orange: `
-            <h2>Orange – Energie und Begeisterung</h2>
-            <p>Orange ist eine fröhliche und energetische Farbe, die oft mit Kreativität, Abenteuer und positiver Energie assoziiert wird. Sie vereint die Lebendigkeit von Rot und die Freude von Gelb und ist damit eine Farbe, die spontan und ansteckend wirkt. Orange ist die Farbe des Herbstes, der Ernte und der goldenen Sonnenuntergänge, die den Tag in ein warmes Licht tauchen.</p>
-            <p>Psychologisch gesehen ist Orange eine Farbe, die Kommunikation und Zusammenarbeit fördert. Sie ist anregend, aber nicht so intensiv wie Rot, was sie zu einer idealen Farbe für kreative Räume und Teamumgebungen macht. Orange wird häufig verwendet, um ein Gefühl von Begeisterung und Abenteuerlust zu wecken, ohne dabei zu überwältigen. Sie ist ideal für Werbung, die Energie und den Wunsch nach Veränderung vermittelt. In der Farbpsychologie wird Orange auch als eine der einladendsten Farben angesehen, die eine warme und optimistische Atmosphäre schafft.</p>
+            <h2>Orange – Energy and Enthusiasm</h2>
+            <p>Orange is a cheerful and energetic color often associated with creativity, adventure, and positive energy. It combines the vibrancy of red with the joy of yellow, making it a color that is spontaneous and infectious. Orange is the color of autumn, harvest, and golden sunsets that bathe the day in warm light.</p>
+            <p>Psychologically, orange is a color that encourages communication and collaboration. It is stimulating but not as intense as red, making it an ideal color for creative spaces and team environments. Orange is frequently used to evoke a sense of enthusiasm and a desire for adventure, without overwhelming. It is ideal for advertising that conveys energy and the desire for change. In color psychology, orange is also considered one of the most inviting colors, creating a warm and optimistic atmosphere.</p>
         `,
         yellow: `
-            <h2>Gelbe Freude: Klarheit, Optimismus und Glück</h2>
-            <p>Gelb ist die Farbe des Lichts und des Sonnenstrahls. Sie steht für Klarheit, Optimismus und Freude. Gelb ist hell, lebendig und kann sofort ein Gefühl von Glück und Energie vermitteln. Wenn wir an Gelb denken, denken wir an die Sonne, die den Tag erhellt, und an blühende Blumen, die den Frühling ankündigen. Diese Farbe ist untrennbar mit positiven Gefühlen wie Zufriedenheit, Wohlstand und Fröhlichkeit verbunden.</p>
-            <p>Gelb hat eine anregende Wirkung auf den Geist und fördert eine klare, positive Denkweise. Sie wird häufig in Umgebungen verwendet, in denen Kreativität und Innovation gefördert werden sollen. Gelb ist ideal für Räume, die Vitalität und Lebensfreude ausstrahlen. Diese Farbe ist auch mit einem hohen Maß an Energie und Aktivität verbunden, da sie eine sofortige Stimmungserhöhung bewirken kann. Gelb steht für den Frühling, das neue Leben und den Beginn von etwas Großem und Aufregendem. Es ist die Farbe der Hoffnung und des Glücks.</p>
+            <h2>Yellow Joy: Clarity, Optimism, and Happiness</h2>
+            <p>Yellow is the color of light and sunshine. It stands for clarity, optimism, and joy. Yellow is bright, vibrant, and can immediately convey a sense of happiness and energy. When we think of yellow, we think of the sun brightening the day and blooming flowers announcing the spring. This color is inextricably linked to positive feelings like satisfaction, prosperity, and cheerfulness.</p>
+            <p>Yellow has a stimulating effect on the mind and promotes clear, positive thinking. It is often used in environments where creativity and innovation are encouraged. Yellow is ideal for spaces that radiate vitality and joy. This color is also associated with high levels of energy and activity, as it can instantly lift one’s mood. Yellow represents spring, new life, and the beginning of something big and exciting. It is the color of hope and happiness.</p>
         `
     };
     
-// Zufällige Grundfarbe auswählen
-const randomBaseColor = getRandomBaseColor();
+    // Select a random base color
+    const randomBaseColor = getRandomBaseColor();
 
-// Container für die Farbbeschreibung erstellen
-const descriptionContainer = document.createElement("div");
-descriptionContainer.id = "color-description";
+    // Create a container for the color description
+    const descriptionContainer = document.createElement("div");
+    descriptionContainer.id = "color-description";
 
-// Detaillierte Beschreibung anhand der ausgewählten Farbe abrufen
-const descriptionText = colorDescriptions[randomBaseColor.name] || "Keine Beschreibung verfügbar.";
+    // Retrieve detailed description based on the selected color
+    const descriptionText = colorDescriptions[randomBaseColor.name] || "No description available.";
 
-// Beschreibung als HTML einfügen
-descriptionContainer.innerHTML = descriptionText;
+    // Insert the description as HTML
+    descriptionContainer.innerHTML = descriptionText;
 
-// Den Beschreibungscontainer am Anfang des Body einfügen
-document.body.insertBefore(descriptionContainer, document.body.lastChild);
+    // Insert the description container at the beginning of the body
+    document.body.insertBefore(descriptionContainer, document.body.lastChild);
 
-    // Die MovingObject-Klasse, die die animierten Objekte steuert
+    // The MovingObject class that controls the animated objects
     class MovingObject {
         constructor(element, centerX, centerY, maxDistance, baseColor) {
             this.element = element;
@@ -98,15 +86,15 @@ document.body.insertBefore(descriptionContainer, document.body.lastChild);
             this.element.style.position = "absolute";
             this.element.style.left = `${centerX}px`;
             this.element.style.top = `${centerY}px`;
-            this.element.style.backgroundColor = this.getColorVariations(baseColor.rgb);  // Farbvariationen anwenden
+            this.element.style.backgroundColor = this.getColorVariations(baseColor.rgb);  // Apply color variations
         }
 
-        // Erzeugt verschiedene Farbvariationen der Grundfarbe
+        // Creates different color variations of the base color
         getColorVariations(baseColor) {
             const baseRGB = baseColor.match(/\d+/g).map(Number);
             const variations = [];
 
-            for (let i = 0; i < 10; i++) {  // Mehr Variationen erzeugen
+            for (let i = 0; i < 10; i++) {  // Generate more variations
                 const variation = baseRGB.map(c => {
                     const offset = Math.floor(Math.random() * 200) - 20;
                     const newColor = Math.min(255, Math.max(0, c + offset));
@@ -115,7 +103,7 @@ document.body.insertBefore(descriptionContainer, document.body.lastChild);
                 variations.push(`rgb(${variation[0]}, ${variation[1]}, ${variation[2]})`);
             }
 
-            // Zufällige Variation auswählen
+            // Select a random variation
             const randomVariationIndex = Math.floor(Math.random() * variations.length);
             return variations[randomVariationIndex];
         }
@@ -148,7 +136,7 @@ document.body.insertBefore(descriptionContainer, document.body.lastChild);
         }
     }
 
-    // Erstelle und füge die animierten Objekte hinzu
+    // Create and add the animated objects
     const bubble = document.createElement("div");
     bubble.className = "movingObject";
     const mother = document.getElementById("movingObject-container");
@@ -163,20 +151,20 @@ document.body.insertBefore(descriptionContainer, document.body.lastChild);
     });
 });
 
-// Initialer Zustand für den Blur
+// Initial state for the blur effect
 let isBlurred = true;
 
-// Event Listener für das Drücken der Taste
+// Event listener for key press
 document.addEventListener('keydown', function(event) {
-    // Überprüfe, ob die 'B'-Taste gedrückt wurde
+    // Check if the 'B' key was pressed
     if (event.key.toLowerCase() === 'b') {
-        // Toggle zwischen Blur und Normalzustand
+        // Toggle between blur and normal state
         if (isBlurred) {
             document.getElementById('movingObject-container').style.filter = 'blur(0)';
         } else {
             document.getElementById('movingObject-container').style.filter = 'blur(50px)';
         }
-        // Ändere den Zustand
+        // Change the state
         isBlurred = !isBlurred;
     }
 });
