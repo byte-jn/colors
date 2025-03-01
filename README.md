@@ -1,6 +1,6 @@
 # Colors
 
-it's a color gradiant with info. below the color bubble is a description about the color.
+It's a color gradiant with info. Below the color bubble is a description about the color. 
 
 # Key Features
 
@@ -24,6 +24,7 @@ The objects will appear to move in various directions and change colors, creatin
 Blur Effect Toggle:
 The webpage initially has a blur effect applied to the #movingObject-container. The user can toggle this blur effect by pressing the 'B' key on the keyboard.
 When the 'B' key is pressed, the filter property of the container element is toggled between blur(0) (clear) and blur(50px) (blurred), changing the visual state of the objects.
+
 How it Works
 The page loads and displays a randomly selected color's description in the center of the screen.
 The objects begin moving based on the random color choice, and the user can toggle the blur effect by pressing the 'B' key on the keyboard.
